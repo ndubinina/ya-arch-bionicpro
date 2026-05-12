@@ -1,0 +1,22 @@
+server:
+  port: ${PORT}
+
+spring:
+  application:
+    name: bionicpro-auth
+
+keycloak:
+  tokenUrl: ${TOKEN_URL}
+  authorizeUrl: ${AUTH_URL}
+  clientId: ${CLIENT_ID}
+  redirectUri: ${REDIRECT_URL}
+
+security:
+  session-timeout-minutes: 30
+
+logging:
+    level:
+      org.apache.http: DEBUG
+      org.springframework.web: DEBUG
+
+spring.mvc.log-request-details: true
