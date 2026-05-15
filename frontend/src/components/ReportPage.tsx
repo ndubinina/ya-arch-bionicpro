@@ -25,6 +25,22 @@ const ReportPage: React.FC = () => {
       const response = await fetch(`http://localhost:8081/reports`, {
           credentials: "include",
       });
+
+      if (!response.ok) {
+        throw new Error("Failed to download report");
+      }
+
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "report.json";
+      document.body.appendChild(a);
+      a.click();
+
+      a.remove();
+      window.URL.revokeObjectURL(url);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An error occurred');
     } finally {

@@ -54,7 +54,6 @@ class KeycloakService(
     fun exchangeCode(state: String, code: String): KeycloakTokenResponse {
 
         val body = LinkedMultiValueMap<String, String>()
-
         val code_verifier = pkceStore.get(state)
 
         body.add("grant_type", "authorization_code")

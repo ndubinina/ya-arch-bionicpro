@@ -10,7 +10,9 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority
 import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.stereotype.Component
 import org.springframework.web.filter.OncePerRequestFilter
+import tools.jackson.module.kotlin.jacksonObjectMapper
 import java.time.Instant
+import java.util.Base64
 import java.util.UUID
 
 @Component
@@ -62,8 +64,8 @@ class SessionFilter(
 
         val authorities = listOf(SimpleGrantedAuthority("ROLE_USER"))
         val authentication = UsernamePasswordAuthenticationToken(
-            "user",
-            null,
+            extractUserEmail(session.accessToken),
+            session.accessToken,
             authorities
         )
 
@@ -79,5 +81,20 @@ class SessionFilter(
         response.addHeader(HttpHeaders.SET_COOKIE, cookie.toString())
 
         chain.doFilter(request, response)
+    }
+
+    fun extractUserEmail(jwt: String): String {
+        val parts = jwt.split(".")
+
+        require(parts.size == 3) { "Invalid JWT" }
+
+        val payloadJson =
+            String(Base64.getUrlDecoder().decode(parts[1]))
+        val mapper = jacksonObjectMapper()
+
+        val payload: Map<String, Any> =
+            mapper.readValue(payloadJson, Map::class.java) as Map<String, Any>
+
+        return payload["email"] as String
     }
 }
