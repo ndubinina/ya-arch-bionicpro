@@ -107,3 +107,52 @@ Port: 5432
 
 - создать bucket
   http://localhost:9001 (minio_user/minio_password): create bucket -> reports
+
+
+## Задание 4. Повышение оперативности и стабильности работы CRM
+
+- настраиваем debezium
+  curl -X POST http://localhost:8083/connectors \
+  -H "Content-Type: application/json" \
+  -d '{
+  "name": "crm-connector",
+  "config": {
+  "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+
+  "database.hostname": "crm_db",
+  "database.port": "5432",
+  "database.user": "debezium",
+  "database.password": "dbz",
+  "database.dbname": "crm_db",
+  "transforms": "unwrap",
+  "transforms.unwrap.type": "io.debezium.transforms.ExtractNewRecordState",
+  "transforms.unwrap.drop.tombstones": "true",
+  "transforms.unwrap.delete.handling.mode": "rewrite",
+  "transforms.unwrap.add.fields": "op,table,lsn",
+  "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+  "value.converter.schemas.enable": "false",
+  "decimal.handling.mode": "double",
+  "topic.prefix": "crm",
+
+  "plugin.name": "pgoutput",
+
+  "slot.name": "debezium",
+
+  "publication.autocreate.mode": "filtered",
+
+  "table.include.list": "public.customers",
+
+  "snapshot.mode": "always"
+  }
+  }'
+
+- пересоздаем crm_db
+docker compose down crm_db
+удаляем postgres-crm-data
+docker compose up -d crm_db
+
+docker compose down olap_db
+удаляем clickhouse-data
+docker compose up -d olap_db
+
+curl -X DELETE http://localhost:8083/connectors/crm-connector
