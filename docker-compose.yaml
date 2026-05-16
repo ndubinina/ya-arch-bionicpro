@@ -118,17 +118,24 @@ services:
       - ./airflow/dags:/opt/airflow/dags
     command: standalone
 
-#  minio:
-#    image: minio/minio
-#    ports:
-#      - "9000:9000"
-#      - "9001:9001"
-#    volumes:
-#      - minio_storage:/data
-#    environment:
-#      MINIO_ROOT_USER: minio_user
-#      MINIO_ROOT_PASSWORD: minio_password
-#    command: server --console-address ":9001" /data
+  minio:
+    image: minio/minio
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - minio_storage:/data
+    environment:
+      MINIO_ROOT_USER: minio_user
+      MINIO_ROOT_PASSWORD: minio_password
+    command: server --console-address ":9001" /data
+
+  cdn:
+    image: nginx:latest
+    ports:
+      - "8089:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
 
 volumes:
   minio_storage: {}

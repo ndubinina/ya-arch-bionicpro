@@ -98,7 +98,12 @@ Port: 5432
 
 - запускаем выгрузку - DAGs -> reports_etl -> Trigger DAG
 - проверяем, что данные прогрузились - SELECT * from user_daily_reports_mart в http://localhost:8123
-- добавляем пользователя в keycloack
-  alexis_moore
-  alexis.moore@example.com
-  password
+  - добавляем пользователя в keycloack
+    alexis_moore
+    alexis.moore@example.com
+    password
+
+## Задание 3. Снижение нагрузки на базу данных
+
+- создать bucket
+  http://localhost:9001 (minio_user/minio_password): create bucket -> reports

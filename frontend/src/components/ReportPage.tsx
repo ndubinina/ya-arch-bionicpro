@@ -4,6 +4,7 @@ const ReportPage: React.FC = () => {
   const [authenticated, setAuthenticated] = useState<boolean | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [reportUrl, setReportUrl] = useState<string | null>(null);
 
   console.log("BACKEND_API_URL: ");
   console.log(`${process.env.BACKEND_API_URL}`);
@@ -22,6 +23,8 @@ const ReportPage: React.FC = () => {
     try {
       setLoading(true);
       setError(null);
+      setReportUrl(null);
+
       const response = await fetch(`http://localhost:8081/reports`, {
           credentials: "include",
       });
@@ -30,17 +33,9 @@ const ReportPage: React.FC = () => {
         throw new Error("Failed to download report");
       }
 
-      const blob = await response.blob();
-      const url = window.URL.createObjectURL(blob);
+      const data = await response.text();
 
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = "report.json";
-      document.body.appendChild(a);
-      a.click();
-
-      a.remove();
-      window.URL.revokeObjectURL(url);
+      setReportUrl(data);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An error occurred');
     } finally {
@@ -81,6 +76,19 @@ const ReportPage: React.FC = () => {
         >
           {loading ? 'Generating Report...' : 'Download Report'}
         </button>
+
+        {reportUrl && (
+          <div className="mt-4">
+            <a
+              href={reportUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 underline"
+            >
+              Open report
+            </a>
+          </div>
+        )}
 
         {error && (
           <div className="mt-4 p-4 bg-red-100 text-red-700 rounded">
