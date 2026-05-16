@@ -1,0 +1,52 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.3.6 Chrome/140.0.7339.249 Electron/38.8.0 Safari/537.36" version="29.3.6">
+  <diagram name="Страница-1" id="MxJGizWloYJ_ehb3fGvR">
+    <mxGraphModel dx="605" dy="485" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="vW8D9TKjhJi1J04Mo-aG-11" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="195" width="520" x="120" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="vW8D9TKjhJi1J04Mo-aG-7" edge="1" parent="1" source="vW8D9TKjhJi1J04Mo-aG-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="vW8D9TKjhJi1J04Mo-aG-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="vW8D9TKjhJi1J04Mo-aG-9" connectable="0" parent="vW8D9TKjhJi1J04Mo-aG-7" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="данные о клиентах" vertex="1">
+          <mxGeometry relative="1" x="-0.0549" y="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vW8D9TKjhJi1J04Mo-aG-1" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="CRM" vertex="1">
+          <mxGeometry height="70" width="120" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="vW8D9TKjhJi1J04Mo-aG-2" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="Click house" vertex="1">
+          <mxGeometry height="70" width="120" x="640" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="vW8D9TKjhJi1J04Mo-aG-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="API протеза" vertex="1">
+          <mxGeometry height="40" width="120" x="640" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="vW8D9TKjhJi1J04Mo-aG-4" edge="1" parent="1" source="vW8D9TKjhJi1J04Mo-aG-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" target="vW8D9TKjhJi1J04Mo-aG-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="vW8D9TKjhJi1J04Mo-aG-5" connectable="0" parent="vW8D9TKjhJi1J04Mo-aG-4" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="save&amp;nbsp;&lt;div&gt;&lt;span style=&quot;font-family: &amp;quot;JetBrains Mono&amp;quot;, monospace; color: rgb(8, 8, 8); background-color: light-dark(#ffffff, var(--ge-dark-color, #121212));&quot;&gt;emg_sensor_data&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.1209" y="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vW8D9TKjhJi1J04Mo-aG-6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Преобразование данных в готовый отчет" vertex="1">
+          <mxGeometry height="80" width="120" x="280" y="125" as="geometry" />
+        </mxCell>
+        <mxCell id="vW8D9TKjhJi1J04Mo-aG-8" edge="1" parent="1" source="vW8D9TKjhJi1J04Mo-aG-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" target="vW8D9TKjhJi1J04Mo-aG-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="vW8D9TKjhJi1J04Mo-aG-10" connectable="0" parent="vW8D9TKjhJi1J04Mo-aG-8" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="save&amp;nbsp;&lt;div&gt;&lt;span style=&quot;font-family: &amp;quot;JetBrains Mono&amp;quot;, monospace; color: rgb(8, 8, 8); background-color: light-dark(#ffffff, var(--ge-dark-color, #121212));&quot;&gt;user_daily_reports_mart&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" x="0.0888" y="-3" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vW8D9TKjhJi1J04Mo-aG-12" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Airflow" vertex="1">
+          <mxGeometry height="30" width="60" x="130" y="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
