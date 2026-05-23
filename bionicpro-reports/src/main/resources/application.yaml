@@ -1,0 +1,18 @@
+server:
+  port: ${PORT}
+
+spring:
+  application:
+    name: bionicpro-reports
+  datasource:
+    url: ${CLICKHOUSE_URL}
+    driver-class-name: com.clickhouse.jdbc.ClickHouseDriver
+
+logging:
+  level:
+    org.apache.http: DEBUG
+    org.springframework.web: DEBUG
+
+spring.mvc.log-request-details: true
+
+report.version: ${REPORT_VERSION}
