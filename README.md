@@ -15,6 +15,7 @@ bionicpro-auth также отвечает за обновление access_toke
 [Ручные настройки keycloack](./keycloak/manual.md) 
 
 Скриншоты:
+пользователь из keycloack
 - [Логин под пользователем из keycloack](./screenshots/login/1.png)
 - [ввод OTP кода](./screenshots/login/2.png)
 - [успешный логин](./screenshots/login/3.png)
@@ -22,12 +23,14 @@ bionicpro-auth также отвечает за обновление access_toke
 - [Попадание отчета в minio](./screenshots/login/5.png)
 - [логи bioreport-auth](./screenshots/login/6.png)
 
+пользователь из ldap
 - [Логин под пользователем из LDAP](./screenshots/loginLDAP/1.png)
 - [Пароль под пользователем из LDAP](./screenshots/loginLDAP/2.png)
 - [Требование OTP кода](./screenshots/loginLDAP/3.png)
 - [ввод OTP кода](./screenshots/loginLDAP/4.png)
 - [Попадание отчета в minio](./screenshots/loginLDAP/5.png)
 
+пользователь из яндекс
 - [Логин под пользователем яндекс](./screenshots/loginLDAP/1.png)
 - [Пароль под пользователем яндекс](./screenshots/loginLDAP/2.png)
 - [Попадание отчета в minio](./screenshots/loginLDAP/3.png)
@@ -38,6 +41,7 @@ bionicpro-auth также отвечает за обновление access_toke
 
 [Ручные настройки airflow](./airflow/manual.md)
 
+Скриншоты:
 - [пустая таблицы с отчета в clickhouse](./screenshots/airflow/1.png)
 - [Запуск airflow](./screenshots/airflow/2.png)
 - [Заполненная таблица с отчетами в clickhouse](./screenshots/airflow/3.png)
@@ -55,6 +59,7 @@ bionicpro-auth также отвечает за обновление access_toke
 
 - настраиваем debezium, выполнив curl [отсюда](./debezium/debezium-connector)
 
+Скриншоты:
 - [События в кафке](./screenshots/debezium/1.png)
 - [Конкретное событие в кафке](./screenshots/debezium/2.png)
 - [Оффсет пользователя](./screenshots/debezium/3.png)
